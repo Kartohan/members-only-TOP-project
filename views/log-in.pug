@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+    div.flex.h-screen.w-full.justify-center.items-center.flex-col
+            p.font-bold.pb-10.text-3xl.border-fuchsia-600.relative(class="border-b-[1px] w-[430px] text-center after") Log #[span.text-fuchsia-500 In]
+            div.rounded-lg(class="w-[500px] h-[600px]")
+                form.flex.flex-col.gap-y-3.py-6.px-8(action="" method="POST")
+                    div.w-full.flex.flex-col 
+                        label.p-1(for="userName") Username
+                        input.p-2.rounded-md.bg-slate-100(type="text" name="userName" id="userName" placeholder="Username" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    div.w-full.flex.flex-col 
+                        label.p-1(for="password") Password
+                        input.p-2.rounded-md.bg-slate-100(type="password" name="password" id="password" placeholder="Password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.py-3.px-14.bg-fuchsia-200.self-center.text-xl.rounded-lg.mt-8(type="submit" value="Log In" class="hover:bg-fuchsia-400 transition hover:scale-[1.02]")

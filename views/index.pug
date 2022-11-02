@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p.h-50.w-50.bg-pink-400 Welcome to #{title}
+  div.flex.px-20.justify-around.bg-fuchsia-400.h-14.items-center(class="")
+    a.font-bold.text-2xl(href="/") Members #[span.text-white Only]
+    nav.flex.gap-5
+      a(href="/login" class="hover:bg-fuchsia-300 transition p-2 rounded-lg text-lg") Log In
+      a(href="/signup" class="hover:bg-fuchsia-300 transition p-2 rounded-lg text-lg") Sign Up

@@ -23,9 +23,10 @@ const userSchema = new Schema({
   ],
   joinDate: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
     immutable: true,
   },
+  image: String,
 });
 
 module.exports = mongoose.model("User", userSchema);

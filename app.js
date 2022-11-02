@@ -5,9 +5,11 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const passport = require("passport");
+const MongoStore = require("connect-mongo");
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
 
 const app = express();
 
@@ -18,9 +20,25 @@ mongoose.connect(mongoDb).then(() => console.log("Connected to DB"));
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
+require("./config/passport");
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: mongoDb }),
+    cookie: {
+      maxAge: 30000 * 60 * 60 * 24, // 30 days
+    },
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -29,7 +47,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,0 +1,43 @@
+extends layout 
+
+block content 
+    div.flex.h-screen.w-full.pt-24.items-center.flex-col
+        p.font-bold.pb-10.text-3xl.border-fuchsia-600.relative(class="border-b-[1px] w-[430px] text-center after") Sign #[span.text-fuchsia-500 Up] #[span.w-56.h-10.bg-white.absolute.left-0(class="transition-transform delay-300 ease-in -translate-x-20 duration-700") ⠀] #[span.w-56.h-9.bg-white.absolute.-right-5(class="transition-transform delay-300 ease-in translate-y-10 duration-700") ⠀] #[span(class="h-1 w-[430px] -bottom-[2px] left-0 absolute bg-white transition-transform ease-in delay-1000 duration-500 translate-x-full") ⠀]
+        div.rounded-lg(class="w-[500px] h-[600px]")
+            form.flex.flex-col.gap-y-3.py-6.px-8(action="" method="POST")
+                div.w-full.flex.flex-col
+                    label.p-1(for="firstName") First Name
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="firstName" id="firstName" placeholder="First Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                div.w-full.flex.flex-col
+                    label.p-1(for="lastName") Last Name
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="lastName" id="lastName" placeholder="Last Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                div.w-full.flex.flex-col 
+                    label.p-1(for="userName") Username
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="userName" id="userName" placeholder="Username" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                div.w-full.flex.flex-col 
+                    label.p-1(for="password") Password
+                    input.p-2.rounded-md.bg-slate-100(type="password" name="password" id="password" placeholder="Password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                div.w-full.flex.flex-col 
+                    label.p-1(for="confirmPassword") Confirm Password
+                    input.p-2.rounded-md.bg-slate-100(type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                p Pick your avatar 
+                div.w-full.flex.flex-row.gap-2.flex-wrap.justify-center.px-10
+                    label(for="111" class="") 
+                        input(type="radio" name="avatar" id="111" value="111" checked class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                    label(for="222" class="") 
+                        input(type="radio" name="avatar" id="222" value="222" class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                    label(for="333" class="") 
+                        input(type="radio" name="avatar" id="333" value="333" class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                    label(for="444" class="") 
+                        input(type="radio" name="avatar" id="444" value="444" class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                    label(for="555" class="") 
+                        input(type="radio" name="avatar" id="555" value="555" class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                    label(for="666" class="") 
+                        input(type="radio" name="avatar" id="666" value="666" class="appearance-none w-20 h-20 rounded-full border-2 absolute checked:ring-2 checked:ring-fuchsia-500 transition")
+                        img.w-20.h-20.rounded-full(src="https://static.vecteezy.com/system/resources/previews/001/206/198/original/mountain-icon-png.png" alt="")
+                input.py-4.px-14.bg-fuchsia-200.self-center.text-xl.rounded-lg.mt-2(type="submit" value="Sign Up" class="hover:bg-fuchsia-400 transition hover:scale-[1.02]")
