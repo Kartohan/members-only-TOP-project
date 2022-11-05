@@ -11,6 +11,7 @@ exports.form_member_get = [
     res.render("membership", {
       user: req.user,
       numberFrom,
+      title: "Members Only | Become a member!",
     });
   },
 ];
@@ -54,11 +55,12 @@ exports.form_message_get = [
   (req, res, next) => {
     res.render("new-post", {
       user: req.user,
+      title: "Members Only | Create new Message",
     });
   },
 ];
 exports.form_message_post = [
-  body("title")
+  body("titleForm")
     .trim()
     .isLength({ min: 1 })
     .withMessage("Enter a title")
@@ -72,14 +74,14 @@ exports.form_message_post = [
     const errors = validationResult(req);
 
     const post = new Post({
-      title: req.body.title,
+      title: req.body.titleForm,
       message: req.body.message,
       created_by: req.user.id,
     });
 
     if (!errors.isEmpty()) {
       res.render("new-post", {
-        title: req.body.title,
+        title: req.body.titleForm,
         message: req.body.message,
         errors: errors.array(),
       });

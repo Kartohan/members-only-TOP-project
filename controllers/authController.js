@@ -31,7 +31,7 @@ const imgs = [
 ];
 
 exports.signUp_get = (req, res, next) => {
-  res.render("sign-up", { imgs: imgs });
+  res.render("sign-up", { imgs: imgs, title: "Members Only | Sign Up" });
 };
 
 exports.signUp_post = [
@@ -130,7 +130,7 @@ exports.signUp_post = [
 exports.logIn_get = [
   isNotAuth,
   (req, res, next) => {
-    res.render("log-in");
+    res.render("log-in", { title: "Members Only | Log In" });
   },
 ];
 exports.logIn_post = [

@@ -13,6 +13,7 @@ router.get("/membership", formController.form_member_get);
 router.post("/membership", formController.form_member_post);
 router.get("/new-message", formController.form_message_get);
 router.post("/new-message", formController.form_message_post);
+router.post("/", indexController.index_deletePost);
 router.get("/", indexController.index_Get);
 
 module.exports = router;

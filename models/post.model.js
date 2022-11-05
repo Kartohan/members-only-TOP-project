@@ -17,4 +17,7 @@ postSchema.virtual("timestamp_formatted").get(function () {
   return DateTime.fromJSDate(this.timestamp).toFormat("dd.LL.yyyy, tt");
 });
 
+postSchema.virtual("form_message").get(function () {
+  return JSON(this.message);
+});
 module.exports = mongoose.model("Post", postSchema);

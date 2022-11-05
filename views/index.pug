@@ -19,19 +19,23 @@ block content
         div.w-full.ring-1.ring-fuchsia-300.rounded-lg.shadow-lg.flex
             if user
               div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
-                img.w-36.rounded-full(src=user.img alt="")
-                p.text-lg #{user.fullName}
-                p.text-xs Join date: #{user.joinDate_formatted}
-              div.py-3.px-2.flex.flex-col
+                img.w-36.rounded-full(src=post.created_by.img alt=post.created_by.image)
+                p.text-lg #{post.created_by.fullName}
+                p.text-xs Join date: #{post.created_by.joinDate_formatted}
+              div.py-3.px-2.flex.flex-col.grow
                 p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
-                p.py-2.text-lg.grow #{post.message}
+                p.py-2.text-lg.grow #{post.form_message}
                 p.text-sm.self-end Post Date: #{post.timestamp_formatted}
+                if user.admin
+                  form.self-end.m-0(action="" method="POST")
+                    input(type="hidden" name="postid" value=post.id)
+                    button.bg-red-200.px-10.py-1.inline-block.text-sm.rounded-lg(type="submit" class="hover:bg-red-400 transition") Delete post
             else 
               div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
-                img.w-36.rounded-full(src=post.created_by.img alt="")
+                img.w-36.rounded-full(src=post.created_by.img alt=post.created_by.image)
                 p.text-lg Anonymous
                 p.text-xs Join date: xx.xx.xxxx
-              div.py-3.px-2.flex.flex-col
+              div.py-3.px-2.flex.flex-col.grow
                 p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
-                p.py-2.text-lg.flex-grow #{post.message}
+                p.py-2.text-lg.grow #{post.message}
                 p.text-sm.place-self-end Post Date: xx.xx.xxxx
