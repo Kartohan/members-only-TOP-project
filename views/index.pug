@@ -1,8 +1,31 @@
 extends layout
 
 block content
-  div.flex.px-20.justify-around.bg-fuchsia-400.h-14.items-center(class="")
-    a.font-bold.text-2xl(href="/") Members #[span.text-white Only]
-    nav.flex.gap-5
-      a(href="/login" class="hover:bg-fuchsia-300 transition p-2 rounded-lg text-lg") Log In
-      a(href="/signup" class="hover:bg-fuchsia-300 transition p-2 rounded-lg text-lg") Sign Up
+  div.flex.flex-col.items-center.gap-5
+    div.mt-5.flex.flex-col.gap-y-3.items-center
+      if user
+        if !user.member 
+          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg(href="" class="hover:bg-fuchsia-400 transition") Become a member! 
+          p.bg-blue-200.px-10.rounded-lg.py-2.text-xs You need to become a member for posting messages!
+        else 
+          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg.flex.justify-center.items-center.gap-3(href="" class="hover:bg-fuchsia-400 transition") Add new Message
+    div.flex.flex-col.items.center(class="w-[80%]")
+      div.w-full.ring-1.ring-fuchsia-300.rounded-lg.shadow-lg.flex
+        if user
+          div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
+            img.w-36.rounded-full(src="images/wolf.png" alt="")
+            p.text-lg John Doe
+            p.text-xs Join date: 12.05.2022
+          div.py-3.px-2.flex.flex-col
+            p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") Lorem ipsum dolor sit amet.
+            p.py-2.text-lg.grow Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus error, vero quo repudiandae, beatae labore accusamus hic voluptas facilis possimus obcaecati et quas! Tempore, nisi. Inventore dolorem deserunt labore libero.
+            p.text-sm.self-end Post Date: 20.02.2013
+        else 
+          div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
+            img.w-36.rounded-full(src="images/wolf.png" alt="")
+            p.text-lg Anonymous
+            p.text-xs Join date: xx.xx.xxxx
+          div.py-3.px-2.flex.flex-col
+            p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") Lorem ipsum dolor sit amet.
+            p.py-2.text-lg.grow Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus error, vero quo repudiandae, beatae labore accusamus hic voluptas facilis possimus obcaecati et quas! Tempore, nisi. Inventore dolorem deserunt labore libero.
+            p.text-sm.self-end Post Date: xx.xx.xxxx

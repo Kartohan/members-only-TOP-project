@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const MongoStore = require("connect-mongo");
+const flash = require("express-flash");
 
 const indexRouter = require("./routes/index");
 
@@ -37,6 +38,7 @@ app.use(
     },
   })
 );
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
