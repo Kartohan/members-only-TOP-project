@@ -5,10 +5,13 @@ block content
     div.mt-5.flex.flex-col.gap-y-3.items-center
       if user
         if !user.member 
-          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg(href="" class="hover:bg-fuchsia-400 transition") Become a member! 
+          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg(href="/membership" class="hover:bg-fuchsia-400 transition") Become a member! 
           p.bg-blue-200.px-10.rounded-lg.py-2.text-xs You need to become a member for posting messages!
-        else 
-          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg.flex.justify-center.items-center.gap-3(href="" class="hover:bg-fuchsia-400 transition") Add new Message
+        else
+          if messages 
+            if messages.status 
+              p.bg-green-200.px-10.rounded-lg.py-2.text-lg #{messages.status}
+          a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg.flex.justify-center.items-center.gap-3(href="/new-message" class="hover:bg-fuchsia-400 transition") Add new Message
     div.flex.flex-col.items.center(class="w-[80%]")
       div.w-full.ring-1.ring-fuchsia-300.rounded-lg.shadow-lg.flex
         if user

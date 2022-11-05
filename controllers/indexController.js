@@ -3,6 +3,7 @@ exports.index_Get = (req, res, next) => {
     res.render("index", {
       user: req.user,
     });
+    return;
   }
   res.render("index");
 };
@@ -12,6 +13,7 @@ exports.index_logOut = (req, res, next) => {
     if (err) {
       return next(err);
     }
+    return;
   });
   res.redirect("/");
 };

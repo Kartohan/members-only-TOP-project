@@ -7,19 +7,19 @@ block content
             form.flex.flex-col.gap-y-3.py-6.px-8(action="" method="POST")
                 div.w-full.flex.flex-col
                     label.p-1(for="firstName") First Name
-                    input.p-2.rounded-md.bg-slate-100(type="text" name="firstName" value=(undefined===user ? "" : user.firstName) id="firstName" placeholder="First Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="firstName" required value=(undefined===user ? "" : user.firstName) id="firstName" placeholder="First Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 div.w-full.flex.flex-col
                     label.p-1(for="lastName") Last Name
-                    input.p-2.rounded-md.bg-slate-100(type="text" name="lastName" value=(undefined===user ? "" : user.lastName) id="lastName" placeholder="Last Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="lastName" required value=(undefined===user ? "" : user.lastName) id="lastName" placeholder="Last Name" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 div.w-full.flex.flex-col 
                     label.p-1(for="userName") Username
-                    input.p-2.rounded-md.bg-slate-100(type="text" name="userName" value=(undefined===user ? "" : user.username) id="userName" placeholder="Username" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.p-2.rounded-md.bg-slate-100(type="text" name="userName" required value=(undefined===user ? "" : user.username) id="userName" placeholder="Username" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 div.w-full.flex.flex-col 
                     label.p-1(for="password") Password
-                    input.p-2.rounded-md.bg-slate-100(type="password" name="password" id="password" placeholder="Password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.p-2.rounded-md.bg-slate-100(type="password" name="password" required id="password" placeholder="Password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 div.w-full.flex.flex-col 
                     label.p-1(for="confirmPassword") Confirm Password
-                    input.p-2.rounded-md.bg-slate-100(type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                    input.p-2.rounded-md.bg-slate-100(type="password" name="confirmPassword" required id="confirmPassword" placeholder="Confirm password" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 p Pick your avatar 
                 div.w-full.flex.flex-row.gap-2.flex-wrap.justify-center.px-10
                     for img in imgs 
