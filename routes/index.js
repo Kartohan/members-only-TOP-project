@@ -11,6 +11,8 @@ router.get("/signup", authController.signUp_get);
 router.get("/logout", indexController.index_logOut);
 router.get("/membership", formController.form_member_get);
 router.post("/membership", formController.form_member_post);
+router.get("/new-message", formController.form_message_get);
+router.post("/new-message", formController.form_message_post);
 router.get("/", indexController.index_Get);
 
 module.exports = router;

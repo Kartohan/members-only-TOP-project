@@ -1,11 +1,21 @@
+const Post = require("../models/post.model");
+
 exports.index_Get = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    res.render("index", {
-      user: req.user,
+  Post.find()
+    .sort({ timestamp: -1 })
+    .populate("created_by")
+    .exec((err, posts) => {
+      if (req.isAuthenticated()) {
+        res.render("index", {
+          user: req.user,
+          posts,
+        });
+        return;
+      }
+      res.render("index", {
+        posts,
+      });
     });
-    return;
-  }
-  res.render("index");
 };
 
 exports.index_logOut = (req, res, next) => {

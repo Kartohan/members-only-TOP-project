@@ -11,24 +11,27 @@ block content
           if messages 
             if messages.status 
               p.bg-green-200.px-10.rounded-lg.py-2.text-lg #{messages.status}
+            if messages.create
+              p.bg-green-200.px-10.rounded-lg.py-2.text-lg #{messages.create}
           a.bg-fuchsia-200.px-16.py-4.inline-block.text-xl.rounded-lg.flex.justify-center.items-center.gap-3(href="/new-message" class="hover:bg-fuchsia-400 transition") Add new Message
-    div.flex.flex-col.items.center(class="w-[80%]")
-      div.w-full.ring-1.ring-fuchsia-300.rounded-lg.shadow-lg.flex
-        if user
-          div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
-            img.w-36.rounded-full(src="images/wolf.png" alt="")
-            p.text-lg John Doe
-            p.text-xs Join date: 12.05.2022
-          div.py-3.px-2.flex.flex-col
-            p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") Lorem ipsum dolor sit amet.
-            p.py-2.text-lg.grow Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus error, vero quo repudiandae, beatae labore accusamus hic voluptas facilis possimus obcaecati et quas! Tempore, nisi. Inventore dolorem deserunt labore libero.
-            p.text-sm.self-end Post Date: 20.02.2013
-        else 
-          div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
-            img.w-36.rounded-full(src="images/wolf.png" alt="")
-            p.text-lg Anonymous
-            p.text-xs Join date: xx.xx.xxxx
-          div.py-3.px-2.flex.flex-col
-            p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") Lorem ipsum dolor sit amet.
-            p.py-2.text-lg.grow Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus error, vero quo repudiandae, beatae labore accusamus hic voluptas facilis possimus obcaecati et quas! Tempore, nisi. Inventore dolorem deserunt labore libero.
-            p.text-sm.self-end Post Date: xx.xx.xxxx
+    div.flex.flex-col.items.center.gap-6(class="w-[80%]")
+      for post in posts 
+        div.w-full.ring-1.ring-fuchsia-300.rounded-lg.shadow-lg.flex
+            if user
+              div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
+                img.w-36.rounded-full(src=user.img alt="")
+                p.text-lg #{user.fullName}
+                p.text-xs Join date: #{user.joinDate_formatted}
+              div.py-3.px-2.flex.flex-col
+                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
+                p.py-2.text-lg.grow #{post.message}
+                p.text-sm.self-end Post Date: #{post.timestamp_formatted}
+            else 
+              div.h-full.p-2.flex.flex-col.items-center.text-center.min-w-fit.gap-y-2
+                img.w-36.rounded-full(src=post.created_by.img alt="")
+                p.text-lg Anonymous
+                p.text-xs Join date: xx.xx.xxxx
+              div.py-3.px-2.flex.flex-col
+                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
+                p.py-2.text-lg.flex-grow #{post.message}
+                p.text-sm.place-self-end Post Date: xx.xx.xxxx

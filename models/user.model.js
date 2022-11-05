@@ -35,7 +35,7 @@ userSchema.virtual("fullName").get(function () {
 });
 
 userSchema.virtual("joinDate_formatted").get(function () {
-  return this.joinDate.toLocaleString(DateTime.DATE_SHORT);
+  return DateTime.fromJSDate(this.joinDate).toFormat("dd.LL.yyyy");
 });
 
 userSchema.virtual("img").get(function () {

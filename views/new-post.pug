@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    div.flex.w-full.justify-center.items-center.flex-col
+        p.font-bold.pb-10.text-3xl.border-fuchsia-600.relative.mt-20.mb-5(class="border-b-[1px] w-[430px] text-center after") Create #[span.text-fuchsia-500 new] Message
+        form.flex.flex-col.gap-y-3.py-6.px-8(action="" method="POST" class="w-[430px]")
+            div.w-full.flex.flex-col
+                label.p-1(for="title") Title
+                input.p-2.rounded-md.bg-slate-100(type="text" name="title" required value=(undefined===title ? "" : title) id="title" placeholder="Your title" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+            div.w-full.flex.flex-col
+                label.p-1(for="message") Message
+                textarea.p-2.rounded-md.bg-slate-100(name="message" required value=(undefined===message ? "" : message) id="message" placeholder="Your message" class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
+                if errors 
+                    div.bg-red-300.p-5.rounded-lg
+                        ul.flex.flex-col.gap-y-2 
+                            for error in errors 
+                                    li #{error.msg}
+                input.py-3.px-14.bg-fuchsia-200.self-center.text-xl.rounded-lg.mt-8(type="submit" value="Post message" class="hover:bg-fuchsia-400 transition hover:scale-[1.02]")

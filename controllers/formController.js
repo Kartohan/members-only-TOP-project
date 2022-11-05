@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Post = require("../models/post.model");
 const { body, validationResult } = require("express-validator");
 
 exports.form_member_get = [
@@ -47,12 +48,61 @@ exports.form_member_post = [
     }
   },
 ];
-exports.form_message_get = (req, res, next) => {
-  res.send("not implemented");
-};
-exports.form_message_post = (req, res, next) => {
-  res.send("not implemented");
-};
+exports.form_message_get = [
+  isAuth,
+  isNotMember,
+  (req, res, next) => {
+    res.render("new-post", {
+      user: req.user,
+    });
+  },
+];
+exports.form_message_post = [
+  body("title")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Enter a title")
+    .escape(),
+  body("message")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Enter a message")
+    .escape(),
+  (req, res, next) => {
+    const errors = validationResult(req);
+
+    const post = new Post({
+      title: req.body.title,
+      message: req.body.message,
+      created_by: req.user.id,
+    });
+
+    if (!errors.isEmpty()) {
+      res.render("new-post", {
+        title: req.body.title,
+        message: req.body.message,
+        errors: errors.array(),
+      });
+    } else {
+      User.findByIdAndUpdate(
+        req.user.id,
+        { $push: { posts: post } },
+        {},
+        (err) => {
+          if (err) {
+            return next(err);
+          }
+        }
+      );
+      post.save((err) => {
+        if (err) return next(err);
+        req.flash("create", "Successfully posted!");
+
+        res.redirect("/");
+      });
+    }
+  },
+];
 
 function isAuth(req, res, next) {
   if (req.isAuthenticated()) {
@@ -63,6 +113,13 @@ function isAuth(req, res, next) {
 
 function isMember(req, res, next) {
   if (req.user.member) {
+    return res.redirect("/");
+  }
+  next();
+}
+
+function isNotMember(req, res, next) {
+  if (!req.user.member) {
     return res.redirect("/");
   }
   next();
