@@ -30,4 +30,4 @@ Things that i need to do:
 Live - https://members-only-top-project-production.up.railway.app/
 
 Preview
-![preview](https://imgur.com/AuQIQvL "Application Preview")
+![preview](https://i.imgur.com/AuQIQvL.png "Application Preview")
