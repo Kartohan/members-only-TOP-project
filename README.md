@@ -28,3 +28,6 @@ Things that i need to do:
 3. Let people update their messages.
 
 Live - https://members-only-top-project-production.up.railway.app/
+
+Preview
+![preview](https://imgur.com/AuQIQvL "Application Preview")
