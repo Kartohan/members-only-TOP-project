@@ -9,6 +9,8 @@ const session = require("express-session");
 const passport = require("passport");
 const MongoStore = require("connect-mongo");
 const flash = require("express-flash");
+const compression = require("compression");
+const helmet = require("helmet");
 
 const indexRouter = require("./routes/index");
 
@@ -42,6 +44,8 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(compression());
+app.use(helmet());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
