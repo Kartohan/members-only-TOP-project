@@ -23,8 +23,8 @@ block content
                 p.text-lg #{post.created_by.fullName}
                 p.text-xs Join date: #{post.created_by.joinDate_formatted}
               div.py-3.px-2.flex.flex-col.grow
-                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
-                p.py-2.text-lg.grow #{post.form_message}
+                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title_unesc}
+                p.py-2.text-lg.grow #{post.message_unesc}
                 p.text-sm.self-end Post Date: #{post.timestamp_formatted}
                 if user.admin
                   form.self-end.m-0(action="" method="POST")
@@ -36,6 +36,6 @@ block content
                 p.text-lg Anonymous
                 p.text-xs Join date: xx.xx.xxxx
               div.py-3.px-2.flex.flex-col.grow
-                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title}
-                p.py-2.text-lg.grow #{post.message}
+                p.font-bold.text-xl.inline-block.self-start(class="border-b-[1px] border-fuchsia-300") #{post.title_unesc}
+                p.py-2.text-lg.grow #{post.message_unesc}
                 p.text-sm.place-self-end Post Date: xx.xx.xxxx
