@@ -10,6 +10,7 @@ What i used:
 4. Express-session, passport-session.
 5. Using MongoDB and Mongoose for storing data and, important, for storing sessions (connect-mongo module)
 6. Tailwind for styling
+7. Railway to deploy
 
 What i learned:
 
@@ -18,6 +19,7 @@ What i learned:
 3. How to let users see what do you want user to see (permissions)
 4. Working with dates.
 5. Continue working with Tailwind and improve my knowledge.
+6. Work with Railway to deploy your project.
 
 Things that i need to do:
 
@@ -25,4 +27,4 @@ Things that i need to do:
 2. Let people get an admin role (now only owner can manually let people become admin)
 3. Let people update their messages.
 
-Live -
+Live - https://members-only-top-project-production.up.railway.app/
