@@ -27,7 +27,7 @@ Things that i need to do:
 2. Let people get an admin role (now only owner can manually let people become admin)
 3. Let people update their messages.
 
-Live - https://members-only-top-project-production.up.railway.app/
+Live - https://members-only-top-project.onrender.com
 
 Preview
 ![preview](https://i.imgur.com/AuQIQvL.png "Application Preview")
