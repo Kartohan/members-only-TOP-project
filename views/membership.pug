@@ -5,7 +5,7 @@ block content
         form(action="" method="post" class="w-[500px] h-[600px] flex flex-col items-center justify-center") 
             div.w-full.flex.flex-col
                 p.border-b-2.border-fuchsia-200.text-center.font-bold.mb-6 To become a member you need to write down a one number in the field!
-                label.p-1.mb-3(for="number") Write 10 numbers from the line &pi; digits starting with the digit under the number #[span.font-bold #{numberFrom}] and 9 more numbers after it. #[br] You need to write down 10 numbers.
+                label.p-1.mb-3(for="number") Write 10 numbers from the line &pi; digits starting with the digit under the #[span.font-bold #{numberFrom}]-th number and 9 more numbers after it. #[br] You need to write down 10 numbers.
                 input.p-2.rounded-md.bg-slate-100(type="text" name="number" id="number" placeholder=`Write 10 numbers` class="focus:outline-none focus:ring-fuchsia-500 focus:ring-1 transition hover:shadow-[0px_0px_3px_rgba(217,70,239,0.9)]")
                 input(type="hidden" name="numberFrom" value=numberFrom)
                 if errors 
